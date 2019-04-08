@@ -1,0 +1,63 @@
+
+<ion-content>
+
+  <div class="wrap-login">
+    <div class="main-form" padding>
+      
+      <hr/>
+      <hr/>
+      <hr/>
+      <hr/>
+      
+      <div class="top-brand pdl-50 pdr-50">
+        <img src="assets/images/lemon_block_w.png">
+        <!-- <h2 class="txt-light fw-900 spacing1 uppercase fs-30">Lemon</h2> -->
+        <p class="txt-light fs-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+      </div>
+
+      <hr/>
+      <hr/>
+      <hr/>
+
+      <form class="pdl-50 pdr-50" [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+        <ion-item lines="none" class="bg-white bdra-30">
+          <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty"></ion-input>
+        </ion-item>
+            
+        <div class="" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+          <p class="">Please enter a valid email.</p>
+        </div>
+
+        <ion-item lines="none" margin-top class="bg-white bdra-30">
+          <ion-input formControlName="password" type="password" placeholder="Your password" 
+          [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
+        </ion-item>
+
+        <div class="" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty">
+          <p class="">Your password needs more than 6 characters.</p>
+        </div>
+
+        <hr/>
+        <hr/>
+
+        <ion-button shape="round" expand="block" fill="solid" color="primary" class="uppercase spacing1 fw-600" type="submit">
+          Login Now
+        </ion-button>
+      </form>
+
+      <div class="">
+        <ion-button fill="clear" size="small" class="txt-light" (click)="openForgotPwd()">
+          Forgot password
+        </ion-button>
+        <ion-button fill="clear" size="small" class="txt-light" (click)="openSignup()">
+          Create a new account
+        </ion-button>
+      </div>
+
+    </div>
+    <div class="bg-login">
+      <img src="assets/images/lemon4.png">
+    </div>
+  </div>
+
+</ion-content>

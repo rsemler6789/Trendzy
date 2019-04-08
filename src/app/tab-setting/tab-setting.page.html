@@ -1,0 +1,49 @@
+<ion-header class="parallax-obj parallax-translate-obj header-transparent">
+  <ion-toolbar>
+      <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding fullscreen common-parallax [scrollEvents]="true">
+  
+  <h2 class="txt1 uppercase fs-14 fw-600">What color do you love?</h2>
+  <p class="txt3 fs-12 pdr-50">Select the color you like, the color will change over the global.</p>
+  <hr/>
+  <hr/>
+  <ion-button color="primary" (click)="changeTheme('')">Default</ion-button>
+  <ion-button *ngFor="let item of list_theme" color="primary" (click)="changeTheme(item)">{{item.name}}</ion-button>
+  <hr>
+  <hr>
+  <h3 class="txt3 uppercase fs-12">Button color theme</h3>
+  <hr>
+  <ion-button color="primary">Primary</ion-button>
+  <ion-button color="secondary">Secondary</ion-button>
+  <ion-button color="tertiary">Tertiary</ion-button>
+  <ion-button color="medium">Medium</ion-button>
+  <ion-button color="dark">Dark</ion-button>
+  <ion-button color="light">light</ion-button>
+  <ion-button color="info">info</ion-button>
+  <ion-button color="success">success</ion-button>
+  <ion-button color="warning">warning</ion-button>
+  <ion-button color="danger">danger</ion-button>
+  <hr>
+  <hr>
+  <h3 class="txt3 uppercase fs-12">Checkbox color theme</h3>
+  <hr>
+  <ion-checkbox margin-end color="primary" checked></ion-checkbox>
+  <ion-checkbox margin-end color="secondary"></ion-checkbox>
+  <ion-checkbox margin-end color="tertiary" checked></ion-checkbox>
+  <ion-checkbox margin-end color="dark" checked></ion-checkbox>
+  <ion-checkbox margin-end color="light" checked></ion-checkbox>
+  <ion-checkbox margin-end color="medium" checked></ion-checkbox>
+  <hr>
+  <ion-checkbox margin-end color="success" checked></ion-checkbox>
+  <ion-checkbox margin-end color="warning" checked></ion-checkbox>
+  <ion-checkbox color="danger" checked></ion-checkbox>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+
+</ion-content>
