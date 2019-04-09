@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import * as Color from 'color';
+import * as Color from 'colors';
 import { Storage } from '@ionic/storage';
 
 const defaults = {

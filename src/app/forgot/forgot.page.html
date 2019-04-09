@@ -1,9 +1,48 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>forgot</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content padding>
+<ion-content>
+  <div class="wrap-forgot pd-40">
 
+    <ion-button color="dark" class="" (click)="backPage()">
+      <ion-icon name="ios-close"></ion-icon>
+    </ion-button>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="">
+      <h2 class="uppercase fw-900 spacing1 txt1 fs-30">Lemon</h2>
+      <h2 class="fw-600 spacing1 txt1 fs-20">Forgot Password</h2>
+      <p class="fs-14 txt4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+    
+    <form [formGroup]="resetPasswordForm" (submit)="resetPassword()" novalidate>
+      
+      <ion-list>
+        <label>Email address</label>
+        
+        <hr>
+
+        <ion-item lines="none" class="bdra-30">
+          <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!resetPasswordForm.controls.email.valid && resetPasswordForm.controls.email.dirty" class=""></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <div class="" *ngIf="!resetPasswordForm.controls.email.valid && resetPasswordForm.controls.email.dirty">
+        <p class="">Please enter a valid email.</p>
+      </div>
+
+      <br/>
+
+      <ion-button expand="block" shape="round" color="primary" class="" type="submit">
+        Reset your Password
+      </ion-button>
+
+    </form>
+
+  </div>
 </ion-content>

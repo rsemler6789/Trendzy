@@ -1,35 +1,26 @@
-
+<ion-header>
+  <ion-button color="light" class="" (click)="backPage()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-button>
+  <ion-title> Create An Account</ion-title>
+</ion-header>
 <ion-content>
   <div class="wrap-signup">
 
     <div class="main-form-signup pd-40">
-      <ion-button color="light" class="" (click)="backPage()">
-        <ion-icon name="ios-close"></ion-icon>
-      </ion-button>
-
+ 
       <div class="pd-20">
-
         <br/>
         <br/>
-        
-
-        <div class="">
-          <h2 class="uppercase fw-900 spacing1 txt-light fs-30">Lemon</h2>
-          <h2 class="fw-600 spacing1 txt-light fs-20">Create an Account</h2>
-          <p class="fs-14 txt-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div>
-
-        <br/>
-        <br/>
+    
+  
         <br/>
         <br/>
 
         <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
-          
           <ion-item lines="none" class="bdra-30">
             <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty" class=""></ion-input>
-          </ion-item>
-          
+          </ion-item>      
           <div class="" *ngIf="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
             <p class="">Please enter a valid email.</p>
           </div>
@@ -47,14 +38,11 @@
           <br/>
 
           <ion-button expand="block" shape="round" color="primary" type="submit">
-            Create an Account
+            Submit
           </ion-button>
         </form>
       </div>
     </div>
 
-    <div class="bg-signup">
-      <img src="assets/images/lemon1.png">  
-    </div>
   </div>
 </ion-content>
