@@ -8,6 +8,7 @@
 
   }
 
+
 .wrap-signup{
 	background-image: linear-gradient(to top, #bfc2c7 0%, #314f91 100%);
 	display: flex;
@@ -16,12 +17,38 @@
 	height: 100%;
 	overflow: hidden;
 	.main-form-signup{
+		text-align: center;
 		position: relative;
-		z-index: 1000;
+		//z-index: 1000;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding-top: 125px;
+			img{
+				
+				background-color: #cfd9df;
+				margin: auto;
+				height: 100px;
+				mix-blend-mode: multiply;
+			}
 		form{
 			ion-item{
 				overflow: hidden;
 			}
+		}
+
+		#rounded {
+			width: 100%;
+			height: 70px;
+			-moz-border-radius: 50px;
+			-webkit-border-radius: 50px;
+			border-radius: 10px;
+			padding: none;
+		}
+		#container {
+			width: 300px; 
+			margin-left:auto; 
+			margin-right: auto; 
 		}
 	}
 	.bg-signup{

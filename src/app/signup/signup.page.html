@@ -2,24 +2,24 @@
   <ion-button color="light" class="" (click)="backPage()">
     <ion-icon name="arrow-back"></ion-icon>
   </ion-button>
-  <ion-title>            <img src="assets/images/TrendzyLogo2.png"> 
+  <ion-title>             
   </ion-title>
 </ion-header>
 
 <ion-content>
+  
   <div class="wrap-signup">
     <div class="main-form-signup pd-40">
-      <div class="pd-20">
-    
-            <!-- <h2 class="txt-light fw-900 spacing1 uppercase fs-30">Lemon</h2> -->
 
-  
+            <img src="assets/images/TrendzyLogo2.png"> 
+
+          <div id="container"> 
         <br/>
         <br/>
 
         <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
-            <p> Email </p>
-          <ion-item lines="none" class="bdra-30">
+            <ion-label> Email </ion-label> 
+          <ion-item lines="none" id = "rounded">
             <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty" class=""></ion-input>
           </ion-item>      
           <div class="" *ngIf="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
@@ -28,8 +28,8 @@
 
           <br/>
 
-          <p> Password </p> 
-          <ion-item lines="none" class="bdra-30">
+          <ion-label> Password </ion-label> 
+          <ion-item lines="none" id = "rounded">
             <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty" class=""></ion-input>
           </ion-item>
           
@@ -43,7 +43,8 @@
             Submit
           </ion-button>
         </form>
-      </div>
+   
+    </div>
     </div>
 
   </div>
