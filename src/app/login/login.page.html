@@ -20,7 +20,8 @@
         <div class="" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
           <p class="">Please enter a valid email.</p>
         </div>
-        <ion-label> Password </ion-label>
+       <ion-label> Password </ion-label>
+ 
         <ion-item lines="none" id = "rounded">
           <ion-input formControlName="password" type="password" placeholder="Your password" 
           [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>

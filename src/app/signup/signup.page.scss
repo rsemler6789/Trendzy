@@ -1,14 +1,3 @@
-.header{
-	img{
-		background-color: #cfd9df;
-		margin: auto;
-		height: 50px;
-		mix-blend-mode: multiply;		
-	}
-
-  }
-
-
 .wrap-signup{
 	background-image: linear-gradient(to top, #bfc2c7 0%, #314f91 100%);
 	display: flex;
@@ -23,15 +12,16 @@
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		padding-top: 125px;
-			img{
-				
+		padding-top: 135px;
+
+		img{
 				background-color: #cfd9df;
 				margin: auto;
 				height: 100px;
 				mix-blend-mode: multiply;
 			}
 		form{
+			flex: .5;
 			ion-item{
 				overflow: hidden;
 			}
