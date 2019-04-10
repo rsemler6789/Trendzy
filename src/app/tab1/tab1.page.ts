@@ -1,10 +1,9 @@
 import { Component, OnInit,NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemService } from '../item.service';
+import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
-import * as firebase from 'firebase';
-// import { AmCharts } from '../../../amcharts/amcharts';
-
+import * as firebase from 'Firebase';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -31,8 +30,6 @@ export class Tab1Page {
     {
       console.log('Tab1 constructed');
 
-      
-      
     }
 
     ngAfterViewInit() {
@@ -40,7 +37,10 @@ export class Tab1Page {
         let chart = am4core.create("chartdiv", am4charts.XYChart);
   
         chart.paddingRight = 20;
-  
+
+        
+  //retrieve data (json) from real time database in firebase
+  //set index to go through all points of one column, plotting them on the x y chart
         let data = [];
         let visits = 10;
         for (let i = 1; i < 366; i++) {

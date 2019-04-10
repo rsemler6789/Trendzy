@@ -27,15 +27,8 @@ export class SignupPage implements OnInit {
 			password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
 		});
 	}
-
-
-
-	ngOnInit() {
-		
+	ngOnInit() {	
 	}
-
-
-
 	signupUser() {
         if (!this.signupForm.valid) {
             console.log(this.signupForm.value);
@@ -92,8 +85,6 @@ export class SignupPage implements OnInit {
 	    });
 	    return await this.loading.present();
 	}
-
-
 	async presentAlert() {
 	    const alert = await this.alertController.create({
 	      	header: 'Signup failed',
