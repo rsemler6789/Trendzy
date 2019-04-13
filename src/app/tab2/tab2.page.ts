@@ -40,7 +40,7 @@ export class Tab2Page {
       //   console.log('There are ' + this.orders.length + ' orders in menu.');
       // }
     }
-
+    //if check, return true.
     isSelected(stock){
       console.log("is selected switch")
     }

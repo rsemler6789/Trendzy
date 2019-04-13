@@ -4,8 +4,10 @@
 }
 
 .header{
+  background-color: #314f91;
   img{
     background-color: #cfd9df;
+    align-content: left;
     margin: none;
     height: 34px;
     mix-blend-mode: multiply;
@@ -14,8 +16,13 @@
 .wrap-tab1{
 	background-image: linear-gradient(to top, #bfc2c7 0%, #314f91 100%);
 	display: flex;
-	align-items: center;
+//  align-items: center;
+  flex-direction: row;
 	justify-content: center;
 	height: 100%;
   overflow: hidden;  
+}
+
+#align{
+  text-align: right;
 }
