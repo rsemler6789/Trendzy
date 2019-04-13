@@ -13,6 +13,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+	InAppBrowser
   ],
   bootstrap: [AppComponent]
 })
