@@ -11,55 +11,28 @@
 	<div class="pd-5 wrap-gallery-masonry">
 	<ion-row>
 		<ion-col>
-			<div (click)="viewImg('lemon20.jpg.')" class="element-gallery pdt-5 pdb-5">
+		
+			<div *ngFor="let stock of stocks1" (click)="openWebPage(stock.symbol)" class="element-gallery pdt-5 pdb-5">
 				<img src="assets/images/lemon20.jpg">
+				<h2> {{ stock.symbol }} </h2>
 			</div>
-			<div (click)="viewImg('lemon1.png')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon1.png">
-			</div>
-			<div (click)="viewImg('lemon11.jpg')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon11.jpg">
-			</div>
-	
-			<div (click)="viewImg('lemon12.jpg')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon12.jpg">
-			</div>
-			<div (click)="viewImg('lemon13.jpg')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon13.jpg">
-			</div>
-	
+			
 		</ion-col>
 		<ion-col>
 	
-			<div (click)="viewImg('lemon19.jpg')" class="element-gallery pdt-5 pdb-5">
+			<div *ngFor="let stock of stocks2" (click)="openWebPage(stock.symbol)" class="element-gallery pdt-5 pdb-5">
 				<img src="assets/images/lemon19.jpg">
+				<h2> {{ stock.symbol }} </h2>
 			</div>
-			<div (click)="viewImg('lemon3.png')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon3.png">
-			</div>
-
-			<div (click)="viewImg('lemon14.jpg')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon14.jpg">
-			</div>
-			<div (click)="viewImg('lemon5.png')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon5.png">
-			</div>
+			
 		</ion-col>
 		<ion-col>
 
-			<div (click)="viewImg('lemon16.jpg')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon16.jpg">
+			<div *ngFor="let stock of stocks3" (click)="openWebPage(stock.symbol)" class="element-gallery pdt-5 pdb-5">
+				<img src="assets/images/lemon14.jpg">
+				<h2> {{ stock.symbol }} </h2>
 			</div>
-
-			<div (click)="viewImg('lemon7.png')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon7.png">
-			</div>
-			<div (click)="viewImg('lemon.png')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon8.png">
-			</div>
-			<div (click)="viewImg('lemon20.jpg')" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon20.jpg">
-			</div>
+			
 		</ion-col>
 	</ion-row>
 </div>
