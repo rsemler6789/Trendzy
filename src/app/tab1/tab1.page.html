@@ -5,9 +5,6 @@
     <ion-title>
       <img src="assets/images/TrendzyLogo2.png"> 
     </ion-title>
-    <div id="align">
-      <ion-datetime displayFormat="MM/DD/YYYY" placeholder="{{date}}" [(ngModel)]="date"></ion-datetime>
-    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +13,13 @@
 <div class = "wrap-tab1">
 <!-- <ion-scroll scrollY="true" style="width: 100%; height: 100%;"> -->
 <ion-grid>
-
+  <ion-col no-padding>
+  <ion-card>
+    <div id="align">
+      Featured Today: <ion-datetime id = "date" displayFormat="MM/DD/YYYY" placeholder="{{date}}" [(ngModel)]="date"></ion-datetime>   
+    </div>
+  </ion-card>
+</ion-col>
 <!-- <ion-title id = "title1"> FEATURED: </ion-title> -->
   <ion-row>
     <ion-col>
