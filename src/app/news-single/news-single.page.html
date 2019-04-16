@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-button color="light" class="" (click)="backPage()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+
+</ion-header>
+
+<ion-content>
+    <div class="wrap-login">
+  <ion-card>
+    <ion-img [src]="article.urlToImage"></ion-img>
+
+    <ion-card-content>
+      <ion-card-title>{{article.title}}</ion-card-title>
+
+      <p>{{article.description}}</p>
+    </ion-card-content>
+  </ion-card>
+  </div>
+</ion-content>

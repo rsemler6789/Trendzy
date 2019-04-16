@@ -11,28 +11,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content overflow-scroll = "true">
+
 <div class = "wrap-tab1">
+<!-- <ion-scroll scrollY="true" style="width: 100%; height: 100%;"> -->
 <ion-grid>
+
+<!-- <ion-title id = "title1"> FEATURED: </ion-title> -->
   <ion-row>
     <ion-col>
-        <h3> Story </h3>
-    </ion-col>
-    <ion-col>
-        <h3> Model </h3>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <!-- Where we insert a story that will update, with story title underneath updating-->
-      <p> Insert Story Title</p>
-      <br/>
+
+      <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsSinglePage(article)">
+          <ion-img [src]="article.urlToImage"></ion-img>
+          <ion-card-content>
+          <ion-card-title>{{article.title}}</ion-card-title>
+  
+          <p>{{article.description}}</p>
+        </ion-card-content>
+      </ion-card>
+    
     </ion-col>
 
-    <ion-col>
-      <p> Insert Model Title</p>
-    </ion-col>
+    <!-- <ion-col>
+      
+        <ion-infinite-scroll (ionInfinite)="loadMoreNews($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubble" loadingText="load news.."></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+  </ion-col> -->
+
+  <ion-col>
+   <ion-card>
+     <p> Model</p>
+     <p> Story title description</p>
+     </ion-card>
+  </ion-col>
+
   </ion-row>
+
   <ion-row>
     <ion-label> S&P 500</ion-label>
     <div id="chartdiv" style="width: 100%; height: 130px"></div>
@@ -45,7 +60,8 @@
     <ion-label>DOW Jones Industrial</ion-label>
     <div id="chartdiv3" style="width: 100%; height: 130px"></div>
   </ion-row>
-  </ion-grid>
-    
+
+</ion-grid>
+<!-- </ion-scroll> -->
 </div>
 </ion-content>

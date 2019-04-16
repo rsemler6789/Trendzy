@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'https://newsapi.org/v2/',
+  apiKey: "f1e4d21109574089a791169f6a0cfa61", 
   firebase: {
     apiKey: "AIzaSyDUGG1m2JQJPRjMd40T6shBoOcZOpBzCRY",
     authDomain: "trendzy-4e0d7.firebaseapp.com",

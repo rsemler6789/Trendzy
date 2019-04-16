@@ -7,6 +7,8 @@ import * as firebase from 'Firebase';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import { NewsService} from '../news.service';
+
 am4core.useTheme(am4themes_animated);
 
 @Component({
@@ -15,9 +17,10 @@ am4core.useTheme(am4themes_animated);
   styleUrls: ['tab1.page.scss']
 })
 
-
-
 export class Tab1Page {
+  //news data
+  data: any;
+  page = 1;
 
   chartData = [];
   chart2Data= [];
@@ -29,7 +32,8 @@ export class Tab1Page {
 
   constructor(
     private zone: NgZone,
-    private router: Router)
+    private router: Router,
+    private newsService: NewsService)
     {
       console.log('Tab1 constructed');
       var nowDate = new Date();
@@ -137,6 +141,9 @@ export class Tab1Page {
         this.chart3 = chart3;
 
       });
+
+
+
     }
 
     ngOnDestroy() {
@@ -165,12 +172,46 @@ export class Tab1Page {
       // An error happened.
     });
   }
+//NEWS START ***
+
+
+  ngOnInit() {
+    this.newsService
+      .getData(
+        `top-headlines?country=us&category=business&pageSize=5&page=${
+          this.page
+        }`
+      )
+      .subscribe(data => {
+        console.log(data);
+        this.data = data;
+      });
+  }
+
+  onGoToNewsSinglePage(article) {
+    this.newsService.currentArticle = article;
+    this.router.navigate(['/news-single']);
+  }
+
+  // loadMoreNews(event) {
+  //   this.page++;
+  //   console.log(event);
+  //   this.newsService
+  //     .getData(
+  //       `top-headlines?country=us&category=business&pageSize=5&page=${
+  //         this.page
+  //       }`
+  //     )
+  //     .subscribe(data => {
+  //       // console.log(data);
+  //       // this.data = data;
+  //       for (const article of data['articles']) {
+  //         this.data.articles.push(article);
+  //       }
+  //       event.target.complete();
+  //       console.log(this.data);
+  //     });
+  // }
 
 ///////////// stock
-
-
-
-
-
-
 }

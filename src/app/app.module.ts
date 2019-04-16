@@ -28,6 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     StatusBar,
