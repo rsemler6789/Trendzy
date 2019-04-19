@@ -24,7 +24,7 @@
   <ion-row>
     <ion-col>
 
-      <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsSinglePage(article)">
+      <ion-card *ngFor="let article of data?.articles.slice(0,1)" (click)="onGoToNewsSinglePage(article)">
           <ion-img [src]="article.urlToImage"></ion-img>
           <ion-card-content>
           <ion-card-title>{{article.title}}</ion-card-title>
@@ -32,8 +32,7 @@
           <p>{{article.description}}</p>
         </ion-card-content>
       </ion-card>
-    
-    </ion-col>
+   
 
     <!-- <ion-col>
       
@@ -42,13 +41,14 @@
         </ion-infinite-scroll>
   </ion-col> -->
 
-  <ion-col>
-   <ion-card>
-     <p> Model</p>
-     <p> Story title description</p>
+   <ion-card *ngFor = "let model of models.slice(0,1)" (click) = "goToModelPage(model)">
+       <ion-img [src] = "model.imgurl"></ion-img>
+       <ion-card-content>
+        
+        <p> {{model.description}}</p>
+      </ion-card-content>
      </ion-card>
   </ion-col>
-
   </ion-row>
 
   <ion-row>

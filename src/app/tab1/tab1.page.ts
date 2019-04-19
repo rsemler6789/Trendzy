@@ -21,7 +21,12 @@ export class Tab1Page {
   //news data
   data: any;
   page = 1;
+  
+  //model data
+  models:Array<any> = [];
+  modelsObservable:Observable<any[]>;
 
+  //stock random data initialized
   chartData = [];
   chart2Data= [];
   chart3Data= [];
@@ -33,7 +38,9 @@ export class Tab1Page {
   constructor(
     private zone: NgZone,
     private router: Router,
-    private newsService: NewsService)
+    private newsService: NewsService,
+    public itemService: ItemService,
+    )
     {
       console.log('Tab1 constructed');
       var nowDate = new Date();
@@ -174,8 +181,21 @@ export class Tab1Page {
   }
 //NEWS START ***
 
+ shuffle(arr) {
+  var i,
+      j,
+      temp;
+  for (i = arr.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+  }
+  return arr;    
+};
 
   ngOnInit() {
+    console.log("Tabl1 init")
     this.newsService
       .getData(
         `top-headlines?country=us&category=business&pageSize=5&page=${
@@ -184,13 +204,31 @@ export class Tab1Page {
       )
       .subscribe(data => {
         console.log(data);
-        this.data = data;
-      });
+        var data1:any=data;
+        data1.articles=this.shuffle(data1.articles);
+        
+        this.data = data1;
+      })
+    
+    this.modelsObservable = this.itemService.GetModel();
+    console.log('hey, models imported');
+    this.modelsObservable.subscribe(models => {
+
+      this.models = this.shuffle(models);
+      if(this.models != undefined){
+        console.log('there are' + this.models.length + "in the menu");
+      }
+    })
   }
 
   onGoToNewsSinglePage(article) {
     this.newsService.currentArticle = article;
     this.router.navigate(['/news-single']);
+  }
+
+  goToModelPage(model){
+    console.log('Model Detail' + model);
+    this.router.navigate(['/model-single'], model)
   }
 
   // loadMoreNews(event) {

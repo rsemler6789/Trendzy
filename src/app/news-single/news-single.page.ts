@@ -19,7 +19,7 @@ export class NewsSinglePage implements OnInit {
   }
 
   backPage(){
-    this.router.navigate(['tab1']);
+    this.router.navigate(['tabs/tab1']);
   }
 
 }

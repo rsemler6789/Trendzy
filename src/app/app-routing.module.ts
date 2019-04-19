@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
   { path: 'forgot', loadChildren: './forgot/forgot.module#ForgotPageModule' },
   { path: 'tab-setting', loadChildren: './tab-setting/tab-setting.module#TabSettingPageModule' },
-  { path: 'news-single', loadChildren: './news-single/news-single.module#NewsSinglePageModule' }
+  { path: 'news-single', loadChildren: './news-single/news-single.module#NewsSinglePageModule' },
+  { path: 'model-single', loadChildren: './model-single/model-single.module#ModelSinglePageModule' }
 ];
 @NgModule({
   imports: [

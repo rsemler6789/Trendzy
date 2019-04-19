@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>model-single</ion-title>
+  </ion-toolbar>
+
+  <ion-button color="light" class="" (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf= "current_model">
+    <ion-img [src] = "current_model.imgurl"> </ion-img>
+    <ion-title> {{current_model.title}}</ion-title>
+    {{current_model.description}}
+  </div>
+</ion-content>
