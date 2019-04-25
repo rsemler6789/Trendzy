@@ -148,9 +148,6 @@ export class Tab1Page {
         this.chart3 = chart3;
 
       });
-
-
-
     }
 
     ngOnDestroy() {

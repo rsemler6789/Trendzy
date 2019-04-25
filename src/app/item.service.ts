@@ -17,7 +17,7 @@ export class ItemService {
 
   models:Observable<any[]>;
   myModels = [];
-
+  quotes: Observable<any[]>;
 
   constructor(public db: AngularFirestore) 
   {
@@ -30,20 +30,19 @@ export class ItemService {
       this.loadModels();
    
       //adding random data to stocks
-      for(var i=0;i<100;i++){
-        var price = Math.random()*100;
-        this.db.collection('/stocks').doc('m1RUNga5n51y6Hn8t3nJ').collection("quotes").add({
-          "price": price, 
-          "date":Date.now(), 
-        });
-      }
+      // for(var i=0;i<100;i++){
+      //   var price = Math.random()*100;
+      //   this.db.collection('/stocks').doc('BmJyTofyDcHeN9NxbOpw').collection("quotes").add({
+      //     "price": price, 
+      //     "date":Date.now(), 
+      //   });
+      // }
       
     
 
   }
 
   loadModels(){ //load my orders
-   // var userid = firebase.auth().currentUser.uid;
     this.models = this.database.collection('FeaturedModels').valueChanges();
     return this.models;
   }
@@ -57,7 +56,14 @@ export class ItemService {
     return this.stocks;
   }
 
+ GetStockQuote(symbol){
+  symbol="3l27FrBiSRD8JwmWn8dQ";
+  // this.quotes = this.db.collection("stocks",ref => ref.where('symbol', '==', symbol)).valueChanges();
+  this.quotes = this.db.collection("stocks").doc(symbol).collection('quotes').valueChanges();
+   console.log('getting symbols' + this.quotes);
+   return this.quotes;
 
+ }
 
 
 }

@@ -32,19 +32,15 @@
           <p>{{article.description}}</p>
         </ion-card-content>
       </ion-card>
-   
-
     <!-- <ion-col>
-      
         <ion-infinite-scroll (ionInfinite)="loadMoreNews($event)">
           <ion-infinite-scroll-content loadingSpinner="bubble" loadingText="load news.."></ion-infinite-scroll-content>
         </ion-infinite-scroll>
   </ion-col> -->
 
-   <ion-card *ngFor = "let model of models.slice(0,1)" (click) = "goToModelPage(model)">
+   <ion-card *ngFor = "let model of models.slice(0,1)">
        <ion-img [src] = "model.imgurl"></ion-img>
        <ion-card-content>
-        
         <p> {{model.description}}</p>
       </ion-card-content>
      </ion-card>

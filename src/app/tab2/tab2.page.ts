@@ -19,9 +19,12 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class Tab2Page {
   stocksObservable:Observable<any[]>;
   stocks:Array<any> = [];
-
+  quotesObservable:Observable<any[]>;
+  quotes:Array<any> = [];
+  symbol = [];
   chartData = [];
   chart: am4charts.XYChart;
+
 
   constructor(
     private zone: NgZone,
@@ -42,6 +45,8 @@ export class Tab2Page {
         //**retrieve data (json) from real time database in firebase **//
         //**set index to go through all points of one column, plotting them on the x y chart **//
         let data = [];
+
+        //
         let visits = 10;
         //creating random data 
         for (let i = 1; i < 366; i++)
@@ -92,12 +97,40 @@ export class Tab2Page {
     ngOnInit() {
       // this.ordersObservable = this.itemService.getOrders();
       this.stocksObservable = this.itemService.GetStockData();
-      
+      console.log()
       this.stocksObservable.subscribe(stocks => {
         this.stocks = stocks;
         if(this.stocks != undefined) {
         console.log('There are ' + this.stocks.length + ' stocks in menu.');
         console.log(this.stocks)
+
+        var i;
+
+        for(i = 0; i < stocks.length - 1; i++)
+        {
+          this.quotesObservable = this.itemService.GetStockQuote(stocks[i].symbol);
+          console.log(stocks[i].symbol);
+          console.log(this.quotesObservable)
+          this.quotesObservable.subscribe(quotes => {
+            this.quotes = quotes;
+            console.log("there are " + quotes[i] + "quotes");
+
+            var percentageDiff;
+            if(this.quotes != undefined) {
+              for(i = 0; i < quotes.length - 1; i++){
+                quotes[i];
+                
+               // console.log(quotes[i]); --> prints all values in the firebase, commenting out for now because 
+               //it is alot
+               //next step: calculate the percentage difference between i+1 and i
+               
+              }
+              
+            
+            }
+          })
+        
+        }
 
         }
   
