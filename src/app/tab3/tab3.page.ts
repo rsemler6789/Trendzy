@@ -21,7 +21,7 @@ export class Tab3Page {
 	constructor(private inAppBrowser: InAppBrowser, public itemService: ItemService) {}
 	
 	ngOnInit() {
-      this.stocksObservable = this.itemService.GetStockData();
+      this.stocksObservable = this.itemService.GetStockDataAgain();
       this.stocksObservable.subscribe(stocks => {
         this.stocks = stocks;
 		this.populateThreeArrays();

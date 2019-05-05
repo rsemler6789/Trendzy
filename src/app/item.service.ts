@@ -13,6 +13,7 @@ import * as firebase from 'Firebase';
 export class ItemService {
   database: AngularFirestore;
   stocks: Observable<any[]>;
+  stocks2: Observable<any[]>;
   myStockData = [];
 
   models:Observable<any[]>;
@@ -25,6 +26,7 @@ export class ItemService {
       this.database = db;
       console.log("Loading saved data");
       this.stocks = db.collection("stocks",ref => ref.where('modelid', '==', modelid)).valueChanges();
+	  this.stocks2 = db.collection("stocks",ref => ref.where('modelid', '==', modelid)).valueChanges();
       console.log(this.stocks);
 
       this.loadModels();
@@ -54,6 +56,10 @@ export class ItemService {
 
   GetStockData(){ //load my orders
     return this.stocks;
+  }
+  
+  GetStockDataAgain() {
+	return this.stocks2;
   }
 
  GetStockQuote(symbol){
