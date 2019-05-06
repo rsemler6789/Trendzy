@@ -30,11 +30,11 @@ export class ItemService {
 	  this.stocks2 = db.collection("stocks",ref => ref.where('modelid', '==', modelid)).valueChanges();
       console.log(this.stocks);
 
-      this.loadModels();
+      //this.loadModels();
 	  
 	  this.db.collection('stocks').snapshotChanges().subscribe(stocks => {
 		  stocks.forEach(a => {
-			  let data = a.payload.doc.data();
+			  let data:any = a.payload.doc.data();
 			  data.id = a.payload.doc.id;
 			  this.stockData.push(data);
 		  });
