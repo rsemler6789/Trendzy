@@ -13,7 +13,7 @@
 		<ion-col>
 		
 			<div *ngFor="let stock of stocks1" (click)="openWebPage(stock.symbol)" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon20.jpg">
+				<img src= "{{ stock.imagePath }}">
 				<h2> {{ stock.symbol }} </h2>
 			</div>
 			
@@ -21,7 +21,7 @@
 		<ion-col>
 	
 			<div *ngFor="let stock of stocks2" (click)="openWebPage(stock.symbol)" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon19.jpg">
+				<img src= "{{ stock.imagePath }}">
 				<h2> {{ stock.symbol }} </h2>
 			</div>
 			
@@ -29,7 +29,7 @@
 		<ion-col>
 
 			<div *ngFor="let stock of stocks3" (click)="openWebPage(stock.symbol)" class="element-gallery pdt-5 pdb-5">
-				<img src="assets/images/lemon14.jpg">
+				<img src= "{{ stock.imagePath }}">
 				<h2> {{ stock.symbol }} </h2>
 			</div>
 			
