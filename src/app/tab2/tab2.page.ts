@@ -34,9 +34,9 @@ export class Tab2Page {
 
 
     }
-
-    ngAfterViewInit() {
-      this.zone.runOutsideAngular(() => 
+	
+	setUpChart() {
+		this.zone.runOutsideAngular(() => 
       {
         let chart = am4core.create("chartdiv", am4charts.XYChart);
         chart.paddingRight = 20;
@@ -79,9 +79,10 @@ export class Tab2Page {
         
         this.chart = chart;
       });
+	}
 
-
-
+    ngAfterViewInit() {
+      this.setUpChart();
     }
 
     ngOnDestroy() {
@@ -139,6 +140,8 @@ export class Tab2Page {
     }
     isSelected(stock){
       console.log("is selected switch")
+	  this.itemService.changeStockSelected(stock.symbol, stock.selected);
+	  this.setUpChart();
     }
 
 

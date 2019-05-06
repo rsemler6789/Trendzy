@@ -15,6 +15,7 @@ export class ItemService {
   stocks: Observable<any[]>;
   stocks2: Observable<any[]>;
   myStockData = [];
+  stockData = []; 
 
   models:Observable<any[]>;
   myModels = [];
@@ -30,6 +31,14 @@ export class ItemService {
       console.log(this.stocks);
 
       this.loadModels();
+	  
+	  this.db.collection('stocks').snapshotChanges().subscribe(stocks => {
+		  stocks.forEach(a => {
+			  let data = a.payload.doc.data();
+			  data.id = a.payload.doc.id;
+			  this.stockData.push(data);
+		  });
+	  });
    
       //adding random data to stocks
       // for(var i=0;i<100;i++){
@@ -69,6 +78,23 @@ export class ItemService {
    console.log('getting symbols' + this.quotes);
    return this.quotes;
 
+ }
+ 
+ async changeStockSelected(symbol, selected){
+	var stockID: any;
+	this.stockData.forEach(a => {
+		if(a.symbol == symbol) {
+			stockID = a.id;
+		}
+	});
+	if(selected == false) {
+		var data = {'modelid': "IVuuyq410mqKPHQBERkH", 'symbol': symbol, 'selected': true};
+		this.db.collection('stocks').doc(stockID).update(data);
+	}
+	else {
+		var data = {'modelid': "IVuuyq410mqKPHQBERkH", 'symbol': symbol, 'selected': false};
+		this.db.collection('stocks').doc(stockID).update(data);
+	}
  }
 
 
